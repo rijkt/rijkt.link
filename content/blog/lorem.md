@@ -2,6 +2,8 @@
 +++
 title = "Lorem"
 date = 2025-04-23
+[taxonomies]
+tags = ["example"]
 +++
 
 "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit" <!-- more -->
