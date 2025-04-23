@@ -15,3 +15,13 @@ highlight_code = true
 
 [extra]
 # Put all your custom variables here
+header_menu_name = "nav"
+
+[extra.menus]
+nav = [
+  { url = "$BASE_URL/blog/", name = "Archive" },
+  { url = "$BASE_URL/categories/", name = "Categories" },
+  { url = "$BASE_URL/tags/", name = "Tags" },
+  { url = "$BASE_URL/about/", name = "About" },
+]
+
