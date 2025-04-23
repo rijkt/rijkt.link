@@ -8,6 +8,9 @@ compile_sass = false
 # Whether to build a search index to be used later on by a JavaScript library
 build_search_index = true
 
+generate_feeds = true
+feed_filenames = ["atom.xml"]
+
 [markdown]
 # Whether to do syntax highlighting
 # Theme can be customised by setting the `highlight_theme` variable to a theme supported by Zola
@@ -29,3 +32,35 @@ nav = [
   { url = "$BASE_URL/about/", name = "About" },
 ]
 
+[extra.profiles.rijkt]
+
+# The URL of avatar.
+# e.g. "icons/github.svg"
+avatar_url = "icons/github.svg" # TODO
+
+# A description of what is in the avatar.
+avatar_alt = ""
+
+# Invert avatar color in dark mode.
+# Default value: false
+avatar_invert = false
+
+# Profile name.
+# Default value: the username
+name = "rijkt"
+
+# Profile bio.
+# Supports Markdown.
+bio = "some bio"
+
+# Social icons.
+# "name" should be the file name of "static/icons/*.svg" or
+# the icon name of https://simpleicons.org/
+# "url" supports "$BASE_URL".
+# Other variables: "urls", "title", "titles".
+social = [
+    { name = "bluesky", url = "https://bsky.app/profile/username" },
+    { name = "github", url = "https://github.com/username" },
+    { name = "email", url = "mailto:example@example.com" },
+    { name = "rss", url = "$BASE_URL/atom.xml" },
+]
