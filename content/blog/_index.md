@@ -1,5 +1,5 @@
 +++
-title = "Blog"
+title = "Archive"
 template = "archive.html"
 transparent = true
 [extra]
