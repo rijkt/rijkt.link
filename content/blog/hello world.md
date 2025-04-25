@@ -1,7 +1,7 @@
 
 +++
 title = "Hello, world"
-date = 2025-04-23
+date = 2025-04-25
 [taxonomies]
 tags = ["meta"]
 +++
