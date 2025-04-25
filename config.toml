@@ -51,7 +51,7 @@ name = "rijkt"
 
 # Profile bio.
 # Supports Markdown.
-bio = "some bio"
+bio = "Passionate about making things easier"
 
 # Social icons.
 # "name" should be the file name of "static/icons/*.svg" or
