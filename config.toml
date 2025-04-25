@@ -36,7 +36,7 @@ nav = [
 
 # The URL of avatar.
 # e.g. "icons/github.svg"
-avatar_url = "icons/github.svg" # TODO
+avatar_url = "profile_400_400.jpg"
 
 # A description of what is in the avatar.
 avatar_alt = ""
@@ -51,7 +51,7 @@ name = "rijkt"
 
 # Profile bio.
 # Supports Markdown.
-bio = "some bio"
+bio = "Passionate about making things easier"
 
 # Social icons.
 # "name" should be the file name of "static/icons/*.svg" or
@@ -59,8 +59,8 @@ bio = "some bio"
 # "url" supports "$BASE_URL".
 # Other variables: "urls", "title", "titles".
 social = [
-    { name = "bluesky", url = "https://bsky.app/profile/username" },
-    { name = "github", url = "https://github.com/username" },
-    { name = "email", url = "mailto:example@example.com" },
+    { name = "bluesky", url = "https://bsky.app/profile/rijkt.link" },
+    { name = "github", url = "https://github.com/rijkt" },
+    { name = "email", url = "mailto:pascal@rijkt.link" },
     { name = "rss", url = "$BASE_URL/atom.xml" },
 ]
