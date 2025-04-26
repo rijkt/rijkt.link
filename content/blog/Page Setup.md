@@ -9,8 +9,20 @@ tags = ["meta"]
 
 This is a documentation post, for my future sanity's sake. If you too are interested in setting up your own website with an *SSG* like *zola*, keep reading. All source code is available on [GitHub](https://github.com/rijkt/rijkt.link).
 
-## Terms
+## System Goals
 
+I want to be able to write and publish text in a me-friendly way, as I am the only user. The content should be separated from the presentation. There is no need for interactivity outside of basic navigation and maybe commenting. It should be possible to host everything on my own, to avoid vendor lock-in.
+
+Since I recently switched my note-taking over from *org-mode* to Markdown, I would like the system to support it. I don't want to write inside an HTML file. The system should also be extensible and using a backend I'm interested learning, i.e. no *PHP*, *Node* or *Go*. 
+
+I might want to publish some notes in German, others in English. Support for multiple languages would enable this more easily.
+
+The design should be open for me to tinker with. I will not, however, design something from scratch. 
+
+## Credits
+
+Reading [vale.rocks](https://vale.rocks/) and [gwern.net](https://gwern.net/) greatly inspired me to have a presence of my own on the web. [Zola](https://www.getzola.org/) and [Linkita](https://codeberg.org/salif/linkita) allowed me to get something off the ground quickly.
+## Terms
 - SSG
 - Zola
 - Markdown
@@ -22,6 +34,7 @@ This is a documentation post, for my future sanity's sake. If you too are intere
 - Cloudflare Domain
 - Cloudflare Proxy
 - Github, Github Actions
+- Email
 
 {% mermaid() %}
 architecture-beta
