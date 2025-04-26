@@ -7,7 +7,7 @@ tags = ["meta"]
 +++
 
 
-This is a documentation post, for my future sanity's sake. If you too are interested in setting up your own website with an *SSG* like *zola*, keep reading. All source code is available on [GitHub](https://github.com/rijkt/rijkt.link).
+This is a documentation post, for my future sanity's sake. If you too are interested in setting up your own website with an *SSG* like *Zola*, keep reading. All source code is available on [GitHub](https://github.com/rijkt/rijkt.link).
 
 ## System Goals
 
@@ -49,3 +49,9 @@ architecture-beta
     disk1:T -- B:server
     disk2:T -- B:db
 {% end %}
+
+
+## Deployment
+At time of writing, *Zola* is no longer properly supported for *Cloudflare Page's* *Git* repository integration. Trying to deploy with the `v2` build systems fails due to *Zola* being unavailable. Per the docs `v1` still supports *Zola*, but only up to version `0.14.0`. I'm currently running `0.20.0` locally. That version mismatch is a source of error's I'm not willing to debug if the worst comes to pass.
+
+Automatic deployment via *Cloudflare* would have been convenient, but inverting the dependency here is nicer in practice. Therefore I simply deploy from a GitHub action. This still needs to be implemented at time of writing - [coming soon](https://github.com/rijkt/rijkt.link/issues/3).
