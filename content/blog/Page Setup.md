@@ -20,7 +20,6 @@ The design should be open for me to tinker with. I will not, however, design som
 
 ## Architecture
 
-
 {% mermaid() %}
 architecture-beta
     group api(cloud)[API]
@@ -37,6 +36,11 @@ architecture-beta
 
 ## DNS
 
+## rijkt.link
+
+Choosing a domain is probably what took me longest in this post. I avoided country TLDs after the most recent political upset affecting a [popular development TLD](https://en.wikipedia.org/wiki/.io#Possible_phasing_out). Choosing one that wasn't prohibitively expensive but still sounded dev/webby took a while and https://tld-list.com/ helped. I landed on `.link`, but this was pretty arbitrary.
+
+I purchased `rijkt.link` using *Cloudflare* after looking at cheaper but more sketchy options. This turned out to be quite practical, as I now host everything related to the website on a single provider.
 ### Email
 
 While I was at it, I also set up a custom email for this domain. This was relatively straightforward using *Proton Mail*, just had to add eight DNS records:
@@ -46,7 +50,7 @@ While I was at it, I also set up a custom email for this domain. This was relati
 - CNAME DomainKeys Identified Mail (DKIM) for keys
 -  TXT DMARC for verifying sender information
 
-Through that you're reading the words of the proud owner of [pascal@rijkt.link](mailto:pascal@rijkt.link).
+With that you're reading the words of the proud owner of [pascal@rijkt.link](mailto:pascal@rijkt.link).
 
 ## Terms
 - SSG
@@ -54,13 +58,11 @@ Through that you're reading the words of the proud owner of [pascal@rijkt.link](
 - Markdown
 - Kita
 - Linkita
-- Git submodules
 - Cloudflare
 - Cloudflare Pages
-- Cloudflare Domain
 - Cloudflare Proxy
 - Github, Github Actions
-- Email
+
 
 
 This is my first attempt at setting up something like this. For work I am more used to big enterprise applications with Single Page front-ends. So if you have any suggestions, feel free to write me at email at [pascal@rijkt.link](mailto:pascal@rijkt.link). Maybe at some point I'll even have a comment feature.
