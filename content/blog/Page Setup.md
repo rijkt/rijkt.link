@@ -21,6 +21,32 @@ The design should be open for me to tinker with. I will not, however, design som
 ## Architecture
 
 
+{% mermaid() %}
+architecture-beta
+    group api(cloud)[API]
+
+    service db(database)[Database] in api
+    service disk1(disk)[Storage] in api
+    service disk2(disk)[Storage] in api
+    service server(server)[Server] in api
+
+    db:L -- R:server
+    disk1:T -- B:server
+    disk2:T -- B:db
+{% end %}
+
+## DNS
+
+### Email
+
+While I was at it, I also set up a custom email for this domain. This was relatively straightforward using *Proton Mail*, just had to add eight DNS records:
+- TXT proof of ownership
+- MX records for routing
+- TXT Sender Policy Framework (SPF) for authentication
+- CNAME DomainKeys Identified Mail (DKIM) for keys
+-  TXT DMARC for verifying sender information
+
+Through that you're reading the words of the proud owner of [pascal@rijkt.link](mailto:pascal@rijkt.link).
 
 ## Terms
 - SSG
@@ -36,19 +62,8 @@ The design should be open for me to tinker with. I will not, however, design som
 - Github, Github Actions
 - Email
 
-{% mermaid() %}
-architecture-beta
-    group api(cloud)[API]
 
-    service db(database)[Database] in api
-    service disk1(disk)[Storage] in api
-    service disk2(disk)[Storage] in api
-    service server(server)[Server] in api
-
-    db:L -- R:server
-    disk1:T -- B:server
-    disk2:T -- B:db
-{% end %}
+This is my first attempt at setting up something like this. For work I am more used to big enterprise applications with Single Page front-ends. So if you have any suggestions, feel free to write me at email at [pascal@rijkt.link](mailto:pascal@rijkt.link). Maybe at some point I'll even have a comment feature.
 
 ## Repository Setup
 
@@ -68,7 +83,6 @@ Versioning is handled with tags on the theme repository.
 At time of writing, *Zola* is no longer properly supported for *Cloudflare Page's* *Git* repository integration. Trying to deploy with the `v2` build systems fails due to *Zola* being unavailable. Per the docs `v1` still supports *Zola*, but only up to version `0.14.0`. I'm currently running `0.20.0` locally. That version mismatch is a source of error's I'm not willing to debug if the worst comes to pass.
 
 Automatic deployment via *Cloudflare* would have been convenient, but inverting the dependency here is nicer in practice. Therefore I simply deploy from a GitHub action. This still needs to be implemented at time of writing - [coming soon](https://github.com/rijkt/rijkt.link/issues/3).
-
 ## Credits
 
 Reading [vale.rocks](https://vale.rocks/) and [gwern.net](https://gwern.net/) greatly inspired me to have a presence of my own on the web. [Zola](https://www.getzola.org/) and [Linkita](https://codeberg.org/salif/linkita) allowed me to get something off the ground quickly.
