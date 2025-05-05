@@ -18,23 +18,9 @@ I might want to publish some notes in German, others in English. Support for mul
 
 The design should be open for me to tinker with. I will not, however, design something from scratch. 
 
-## Architecture
-
-{% mermaid() %}
-```mermaid
-architecture-beta
-
-
-    service proxy(internet)[Cloudflare Proxy] 
-    service static(server)[Static Web Server]
-
-
-```
-{% end %}
-
 ## DNS
 
-## rijkt.link
+### rijkt.link
 
 Choosing a domain is probably what took me longest in this post. I avoided country TLDs after the most recent political upset affecting a [popular development TLD](https://en.wikipedia.org/wiki/.io#Possible_phasing_out). Choosing one that wasn't prohibitively expensive but still sounded dev/webby took a while and https://tld-list.com/ helped. I landed on `.link`, but this was pretty arbitrary.
 
@@ -50,20 +36,27 @@ While I was at it, I also set up a custom email for this domain. This was relati
 
 With that you're reading the words of the proud owner of [pascal@rijkt.link](mailto:pascal@rijkt.link).
 
-## Terms
-- SSG
-- Zola
-- Markdown
-- Kita
-- Linkita
-- Cloudflare
-- Cloudflare Pages
-- Cloudflare Proxy
-- Github, Github Actions
+## CloudFlare
+
+The resulting setup is quite simple. A CNAME entry points to an internal *Cloudflare* domain belonging to the *Cloudflare Page*. The internal domain is fronted by *Cloudflare Proxy*, which adds DDoS protection, metrics and the like.
+{% mermaid() %}
+```mermaid
+architecture-beta
 
 
+    service proxy(internet)[Cloudflare Proxy] 
+    service static(server)[Static Web Server]
+    
+    proxy:R -- L:static
 
-This is my first attempt at setting up something like this. For work I am more used to big enterprise applications with Single Page front-ends. So if you have any suggestions, feel free to write me at email at [pascal@rijkt.link](mailto:pascal@rijkt.link). Maybe at some point I'll even have a comment feature.
+
+```
+{% end %}
+
+## Zola
+Zola is a static site generator written in Rust. It has many [themes](https://www.getzola.org/themes/), [Linkita](https://codeberg.org/salif/linkita) is the one I'm using. It is based on [Kita](https://github.com/st1020/kita) and adds multi-language support.
+
+My reasoning for using Zola over more broadly supported alternatives mainly boils down to Zola using Rust. If I ever want to write an extension I would prefer using Rust over e.g. Ruby.
 
 ## Repository Setup
 
@@ -86,3 +79,7 @@ Automatic deployment via *Cloudflare* would have been convenient, but inverting 
 ## Credits
 
 Reading [vale.rocks](https://vale.rocks/) and [gwern.net](https://gwern.net/) greatly inspired me to have a presence of my own on the web. [Zola](https://www.getzola.org/) and [Linkita](https://codeberg.org/salif/linkita) allowed me to get something off the ground quickly.
+
+## Closing remarks
+
+This is my first attempt at setting up something like this. For work I am more used to big enterprise applications with Single Page front-ends. So if you have any suggestions, feel free to write me at email at [pascal@rijkt.link](mailto:pascal@rijkt.link). Maybe at some point I'll even have a comment feature.
