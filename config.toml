@@ -25,6 +25,8 @@ paginate_by = 5
 # Put all your custom variables here
 header_menu_name = "nav"
 
+mermaid = true
+
 [extra.menus]
 nav = [
   { url = "$BASE_URL/blog/", name = "Archive" },
