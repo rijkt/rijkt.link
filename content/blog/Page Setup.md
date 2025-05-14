@@ -1,9 +1,8 @@
-
 +++
 title = "Setting up rijkt.link"
 date = 2025-04-27
 [taxonomies]
-tags = ["meta"]
+tags = ["meta", "documentation"]
 +++
 
 This is a documentation post, for my future sanity's sake. If you too are interested in setting up your own website with an *SSG* like *Zola*, keep reading.  <!-- more --> All source code is available on [GitHub](https://github.com/rijkt/rijkt.link). 
