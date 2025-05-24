@@ -9,11 +9,11 @@ tags = ["self-hosting", "documentation"]
 
 # Pain Points
 
-This holiday season I sought to address some issues in my home setup. I experienced a lot of friction in using multiple computers and trying to avoid Cloud Services like those offered by Google. In the past I was content storing all my personal data on the desktop I used as a daily driver. By now I mostly work on my Laptop and am used to accessing everything from my phone as well. Everything except important or personal files that still sat on my desktop on an encrypted drive.
+This holiday season I sought to address some issues in my home setup. I experienced a lot of friction in using multiple computers and trying to avoid Cloud Services like those offered by Google. In the past I was content storing all my personal data on the desktop I used as a daily driver. By now I mostly work on my Laptop and am used to accessing everything from my phone as well. Everything, except important or personal files that still sat on my desktop on an encrypted drive.
 
-The drive encryption stems from an attempt to devise a feasible backup strategy a few years back. I used to clone the encrypted drive onto an external one and store that in my closet. I needed to encrypt everything, you see, in case the loose drive ever got away. This introduced more complexity and friction in accessing my data on the desktop. The approach of manual backups was a bit fiddly and required planning and motivated effort.
+The drive encryption stems from an attempt to devise a feasible backup strategy a few years back. I used to clone the encrypted drive onto an external one and store that in my closet. I needed to encrypt everything, you see, in case the loose drive ever got away. Because the backup was encrypted and I wanted to clone the whole drive, the desktop's HDD had to be encrypted as we.. This introduced more complexity and friction in accessing my data on the desktop. The approach of manual backups was a bit fiddly and required planning and motivated effort.
 
-Because of this I've been living without functional backups for quite some time. The existential dread of losing everything because of hardware failure or many, many other imagined horrors were another key motivator in this project. Striking a balance between ease of use and paranoia. A theme in all my self-hosting.
+Because of this I've been living without functional backups for quite some time. The existential dread of losing everything to hardware failure or many, many other imagined horrors were another key motivator in this project. To strike a balance between ease of use and paranoia - a theme in all my self-hosting.
 
 # Goals
 
@@ -21,9 +21,9 @@ I want to have an automated backup solution that is independent from big cloud p
 
 # Reducing Complexity
 
-As I like to do it in my programming practice, I first tried simplifying the data I had to work with. It was the season of reflecting and letting things go, so I deleted a whole lot. Over so many years, a lot of duplicates sneak in as well. I got rid of those using `fdupes`.
+As I like to do it in my programming practice, I first tried simplifying the data I had to work with. It was the season of reflecting and letting things go, so I deleted a whole lot. Over so many years, a lot of duplicates snuck in as well. I got rid of those using `fdupes`.
 
-Next, I centralized. Instead of having my data spread on multiple devices, I moved everything from documents to _Bandcamp_ purchases to one data store. I started out using an old computer as a makeshift server, but replaced it during this effort. I landed on a _Synology NAS_ to reduce maintenance effort. This move eliminated the process of copying the target data to a backup location, as it is now already stored on the same device.
+Next, I centralized. Instead of having my data spread on multiple devices, I moved everything from documents to _Bandcamp_ purchases to one data store. I started out using an old computer as a makeshift server, but replaced it during this effort. I landed on a _Synology NAS_ to reduce maintenance effort. Centralizing my data eliminated the process of copying the it to a backup location, as it is now already stored on the same device.
 
 # Solution
 
@@ -67,6 +67,8 @@ architecture-beta
 
 {% end %}
 
+The final diagram shows all data flow for updates. For clients, all permanently required data is synced. Access to the data is provided from inside and outside the home network with Samba Shares and *Synology QuickConnect* for remote access.
+
 {% mermaid() %}
 
 ```mermaid
@@ -80,8 +82,8 @@ architecture-beta
 
 
 
-	disk1:R --> L:disk2
-    disk1:T --> B:disk3
+	disk1:L --> R:disk2
+    disk1:T --> R:disk3
 
     group friend(database)[Friendly NAS]
 	service diskf(disk)[Data] in friend
@@ -92,16 +94,8 @@ architecture-beta
 {% end %}
 
 # Conclusion
+This project was a great personal success. Besides existential dread, it also eliminated some hangups regarding relying on proprietary software. While I still love FOSS, I also have to acknowledge my limited time and energy. Using a commercial NAS product allowed me to escape analysis paralysis and actually finishing the setup.
 
-The final piece in the puzzle to achieve true geo-redundancy was achieved this year, when I moved into a new town. Now even earthquakes won't touch my backup. Next step: shoot my NAS into space.
+By now I feel much more inclined to actually access and consume the various media I collected over the years. Removing technical barriers and providing a great user experience leads to great results. This rings true in a hobby project just as much as in a professional setting.
 
-Feel much more inclined to read manga (easily accessible).
-Having a NAS opens up new automation possibilites.
-
-# Open Issues
-
-Data in syncthing has to be moved manually (eg. photos).
-maximising btrfs potential
-send/receive?
-restic/syncthing introduces redundancy (the bad kind). How to privately and easily send backups to friends' server?
-need to update and maintain restic container
+The final piece in the puzzle to achieve true geo-redundant backups was achieved this year, when I moved to a new town. Now even earthquakes won't touch my backup. Next step: shoot my NAS into space.
