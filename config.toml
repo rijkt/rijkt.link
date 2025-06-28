@@ -61,7 +61,7 @@ bio = "Passionate about making things easier"
 # "url" supports "$BASE_URL".
 # Other variables: "urls", "title", "titles".
 social = [
-    { name = "bluesky", url = "https://bsky.app/profile/rijkt.link" },
+    { name = "gitlab", url = "https://gitlab.com/rijkt" },
     { name = "github", url = "https://github.com/rijkt" },
     { name = "email", url = "mailto:pascal@rijkt.link" },
     { name = "rss", url = "$BASE_URL/atom.xml" },
