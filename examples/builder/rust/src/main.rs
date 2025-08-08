@@ -1,4 +1,8 @@
-struct Tofu {
+
+use crate::tofu::Tofu;
+
+mod tofu {
+pub struct Tofu {
     id: u16,
     name: Option<String>,
     silky: bool,
@@ -6,12 +10,12 @@ struct Tofu {
 }
 
 impl Tofu {
-    fn builder(id: u16) -> TofuBuilder {
+    pub fn builder(id: u16) -> TofuBuilder {
         TofuBuilder::new(id)
     }
 }
 
-struct TofuBuilder {
+pub struct TofuBuilder {
     id: u16,
     name: Option<String>,
     silky: bool,
@@ -19,7 +23,7 @@ struct TofuBuilder {
 }
 
 impl TofuBuilder {
-    fn new(id: u16) -> TofuBuilder {
+    pub fn new(id: u16) -> TofuBuilder {
         TofuBuilder {
             id,
             name: None,
@@ -28,7 +32,7 @@ impl TofuBuilder {
         }
     }
 
-    fn build(self) -> Tofu {
+    pub fn build(self) -> Tofu {
         Tofu {
             id: self.id,
             name: self.name,
@@ -37,22 +41,25 @@ impl TofuBuilder {
         }
     }
 
-    fn name(mut self, name: String) -> TofuBuilder {
+    pub fn name(mut self, name: String) -> TofuBuilder {
         self.name = Some(name);
         self
     }
 
-    fn smoky(mut self, smoky: bool) -> TofuBuilder {
+    pub fn smoky(mut self, smoky: bool) -> TofuBuilder {
         self.silky = smoky;
         self
     }
 }
+}
 
 fn main() {
-    let smoky_tofu = Tofu::builder(0)
+    let mut smoky_tofu = Tofu::builder(0)
         .name("Smokey smoke tofu".to_owned())
         .smoky(true)
         .build();
+    smoky_tofu.name = "asdf";
 
-    let silken_tofy = Tofu::builder(1).smoky(true).build();
+    let silken_tofu = Tofu::builder(1).smoky(true).build();
+  
 }
