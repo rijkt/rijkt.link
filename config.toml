@@ -62,7 +62,7 @@ bio = "Passionate about making things easier"
 # Other variables: "urls", "title", "titles".
 social = [
     { name = "gitlab", url = "https://gitlab.com/rijkt" },
-    { name = "github", url = "https://github.com/rijkt" },
+    { name = "codeberg", url = "https://codeberg.org/rijkt" },
     { name = "email", url = "mailto:pascal@rijkt.link" },
     { name = "rss", url = "$BASE_URL/atom.xml" },
 ]
