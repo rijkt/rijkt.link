@@ -11,10 +11,10 @@ build_search_index = true
 generate_feeds = true
 feed_filenames = ["atom.xml"]
 
-[markdown]
+#[markdown]
 # Whether to do syntax highlighting
 # Theme can be customised by setting the `highlight_theme` variable to a theme supported by Zola
-highlight_code = true
+#highlight_code = true
 
 [[taxonomies]]
 name = "tags"
