@@ -15,10 +15,18 @@ The first "real" Rust I wrote was [rusty piano](https://codeberg.org/rijkt/rusty
 
 [![Video showcasing sound generation](https://pub-50a3834faf53422c806af488a9260701.r2.dev/blog/rust-piano-thumb.png)](https://pub-50a3834faf53422c806af488a9260701.r2.dev/blog/rusty-piano.mp4)
 
+
+Up next:
+- [minesweep-rs](https://codeberg.org/rijkt/minesweep-rs)
+- [shovelhead-rs](https://codeberg.org/rijkt/shovelhead-rs)
+- [fediboard](https://codeberg.org/rijkt/fediboard)
+- [gentle-reminder](https://codeberg.org/rijkt/gentle-reminder)
+
+<!-- 
 - REST APIs with database integration.
 - Async
 - Polymorphism, how to work without it (and where I came crawling back to it).
 - Clean Architecture
 - little one off programs I use in hobbies (shovelhead-rs)
 - game
-- embedded
+-->
