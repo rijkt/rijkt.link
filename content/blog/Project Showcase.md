@@ -35,18 +35,18 @@ Language design fascinates me, so for this project I challenged myself again. I 
 
 It took me [three months](https://codeberg.org/rijkt/fediboard/pulls/7) and a lot of experimentation, but I ended up with a  design for a REST API that works pretty well as a project template. I ended up coming to the same conclusions and going through the same iterations as described in this [article](https://tulipemoutarde.be/posts/2023-08-20-depencency-injection-rust-axum/#static-dispatch-against-a-struct), so I won't restate that here. It came down to using dynamic dispatch in specific circumstances and static dispatch by default. Going static all the way would have meant propagating a set of generic types through every function definition. Since dispatch is used here mostly as an architectural barrier between caller and callee, I chose pragmatism. There are very specific traits (e.g. `BoardPersistence`) at the architectural boundaries that use dynamic dispatch,. Everything else is static. Rust is out here, delivering the best of both worlds.
 
-Up next:
-- [fediboard](https://codeberg.org/rijkt/fediboard)
-- [shovelhead-rs](https://codeberg.org/rijkt/shovelhead-rs)
-- [gentle-reminder](https://codeberg.org/rijkt/gentle-reminder)
+## A period piece
 
-<!-- 
-- REST APIs with database integration.
-- Async
-- Polymorphism, how to work without it (and where I came crawling back to it).
-- Clean Architecture
-- little one off programs I use in hobbies (shovelhead-rs)
-- game
--->
-<!-- 
-I want to come back to my first embedded project to add keys and really turn it into a piano. -->
+Next up we have my current project: [gentle-reminder](https://codeberg.org/rijkt/gentle-reminder), a self-hostable reminder service. It is again written using `axum` and based on the the project template described above. This time I am integrating external services as well, by sending reminders via e-mail. With this project I am aiming to clear out my calendar a bit and receive periodic reminders via a different channel.
+
+The challenge here was managing the threads responsible for sending triggered reminders. Since they can be dynamically added and removed, some scheduling is needed. Thankfully *tokio* provides the `CancellationToken` abstraction, which makes this almost easy. Add some basic event handling after deletes and updates and voilà: A reminder e-mail coming your way.
+
+Next up is a frontend. My APIs already ship OpenAPI endpoints and I've been itching to generate some Webassembly. 
+
+## Reflections
+
+Every project helped me understand and refine core Rust concepts. There was of course a lot that didn't work, a lot of arguing with the borrow checker, and incomprehensible type errors.  The best tool in my belt has always been writing. When I am truly stumped, I open up a document and interrogate my assumptions about the problem at hand. I gather documentation and error messages until I synthesize the solution.  I am still often reminded of those notes and refer back to them in my daily programming. 
+
+By now I have a good grasp on Rust and its ecosystem. I've been getting deep into async Rust and web server tech. I'm hyped for new developments and am keeping up with Rust RFCs like [RTN](https://github.com/rust-lang/rust/issues/109417) (here's hoping).
+
+Writing Rust for the web is a lot of fun. Nonetheless I would like to return to my embedded project some day and finish that piano.
