@@ -16,7 +16,7 @@ The first "real" Rust I wrote was [rusty piano](https://codeberg.org/rijkt/rusty
 [![Video showcasing sound generation](https://pub-50a3834faf53422c806af488a9260701.r2.dev/blog/rust-piano-thumb.png)](https://pub-50a3834faf53422c806af488a9260701.r2.dev/blog/rusty-piano.mp4)
 
 
-When we were satisfied with our *PWM* playground, I took a little break from Rust. My friend and I had new ideas and we went on to set up our shared backup solution we still use today. See [Backup Writeup](https://rijkt.link/blog/backup-writeup/) if you'd like to know more.
+When we were satisfied with our *PWM* playground, I took a little break from Rust. My friend and I had new ideas and we went on to set up our shared backup solution we still use today. See [Backup Writeup](../backup-writeup) if you'd like to know more.
 
 ## Revisiting a childhood classic
 
