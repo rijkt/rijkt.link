@@ -27,7 +27,14 @@ While embedded programming was fun, it only gave a very narrow view of the langu
 As always with games, this one was a lot of fun to make and test. To challenge myself, I wanted to use no libraries outside std, where feasible. This way, I ended up getting over the initial steep learning curve that Rust is notorious for. Managing game state while also collecting user input will force you to get to know the borrow checker at least a little bit. I did separate those concerns with the hope of coming back and writing a solver at some point. I still want to do that, but before that I'll probably rewrite the whole thing to use Iced. Sadly the rendering logic is not separated in the way that iced expects it to be, which will be a challenge in the next iteration.
 
 ## Federated Rust (someday)
-Allowing to change out implementations was a big focus in the next project, [fediboard](https://codeberg.org/rijkt/fediboard). Coming from Java, I was used to dynamic dispatch being used for everything.
+Allowing to change out implementations was a big focus in the next project: A simple imageboard API, written using `axum` and `sqlx`: [fediboard](https://codeberg.org/rijkt/fediboard). The name stems from my initial plan to explore the ActivityPub.. I decided against it in the end though, because my focus landed elsewhere.
+
+Coming from Java, I was used to dynamic dispatch being everywhere. Need to decide which code path to run? Add an interface with different behaviors in different implementations. Since nothing is set in stone at compile time, you could simply switch out an implementation when deploying your software. While this is powerful, it comes with a lot of drawbacks. Rust gives us the choice whether to do dynamic or static dispatch, each with their own advantages and drawbacks. 
+
+Language design fascinates me, so for this project I challenged myself again. I wanted to implement a Clean Architecture style of separating concerns, while only using static dispatch to explore the limits of this approach. Just so we're clear, this is not a great idea and I do not recommend doing it this way. I just wanted to see where it lead me.
+
+It took me [three months](https://codeberg.org/rijkt/fediboard/pulls/7) and a lot of experimentation, but I ended up with a  design for a REST API that works pretty well as a project template. I ended up going through pretty much exactly the iterations described in this [article](https://tulipemoutarde.be/posts/2023-08-20-depencency-injection-rust-axum/#static-dispatch-against-a-struct), so I did end up back using dynamic dispatch. I could have gone all the way, but this would have meant propagating a set of generic types through every function definition. Since dispatch is used here mostly as an architectural barrier between caller and callee, I chose pragmatism. There are very specific Traits at the architectural boundaries that use dynamic dispatch, everything else is static. Rust is out here, delivering the best of both worlds.
+
 
 Up next:
 - [fediboard](https://codeberg.org/rijkt/fediboard)
