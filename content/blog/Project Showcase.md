@@ -27,7 +27,7 @@ While embedded programming was rewarding, it only gave me a very narrow view of 
 As always with games, this one was a lot of fun to make and test. To challenge myself, I wanted to use no libraries outside std, where feasible. This way, I ended up getting over the initial steep learning curve that Rust is notorious for. Managing game state while also collecting user input will force you to get to know the borrow checker at least a little bit. I did separate those concerns with the hope of coming back and writing a solver at some point. I still want to do that, but I'll probably have to rewrite the whole thing to use a nicer frontend. Sadly, swapping out the rendering component would have taken some more architecting. The rendering logic is not separated in the way that e.g. *iced* expects it to be, which will be a challenge in the next iteration.
 
 ## Getting dispatched by Uncle Bob
-Allowing to swap out implementations was a big focus in the next project: A simple imageboard API, written using `axum` and `sqlx`: [fediboard](https://codeberg.org/rijkt/fediboard). The name stems from my initial plan to explore the ActivityPub protocol as well. I decided against it in the end though, because my focus landed elsewhere.
+Allowing to swap out implementations was a big focus in the next project: A simple imageboard API, written using `axum` and `sqlx`: [fediboard](https://codeberg.org/rijkt/fediboard). The name stems from my initial plan to explore the *ActivityPub* protocol as well. I decided against it in the end though, because my focus landed elsewhere.
 
 Coming from Java, I was used to dynamic dispatch being everywhere. Need to decide which code path to run? Add an interface with different behaviors in different implementations. Since nothing is set in stone at compile time, you could simply switch out an implementation when deploying your software. While this is powerful, it comes with a lot of drawbacks. Rust gives us the choice whether to do dynamic or static dispatch, each with their own advantages and drawbacks. 
 
@@ -43,7 +43,7 @@ Next up we have my current project: [gentle-reminder](https://codeberg.org/rijkt
 
 The challenge here was managing the threads responsible for sending triggered reminders. Since they can be dynamically added and removed, some scheduling is needed. Thankfully *tokio* provides the `CancellationToken` abstraction, which made this pretty easy in the end. Add some basic event handling after deletes and updates and voilà: A reminder e-mail coming your way.
 
-Next up is a frontend. My APIs already ship OpenAPI endpoints and I've been itching to generate some Webassembly. 
+Next up is a frontend. My APIs already ship *OpenAPI* endpoints and I've been itching to generate some *Webassembly*. 
 
 ## Reflections
 
