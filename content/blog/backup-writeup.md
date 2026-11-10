@@ -31,8 +31,7 @@ Clients store what they need locally. Working data that needs to be shared is pu
 Shared data lives centralized and de-duplicated data on my home _NAS_. Everything is kept in a volume with _SHR (Synology Hybrid RAID)_ backed by two disks to mitigate drive failure. The volume also uses `btrfs`, so I could theoretically reset an accidental deletion of some important file.
 
 There is a second volume with a single dedicated disk disk for cloning all my data. This is the actual backup. It lives on the same device to make automation as easy as possible. The backup is done on a per-folder basis with a _Synology_ tool, _Hyper Backup_. It runs daily and informs me about failures, which let's me sleep easy. At this point the data is stored redundantly, but will not survive a house fire. That is where the power of friendship comes in.
-{% mermaid() %}
-
+{% <mermaid> -%}
 ```mermaid
 architecture-beta
     group nas(database)[NAS]
@@ -44,16 +43,14 @@ architecture-beta
     disk1:R --> L:disk2
 
 ```
-
-{% end %}
+{%- </mermaid> %}
 
 The third volume with one dedicated disk contains a `restic` repository with a minimal set of important data that is synced to a friend's home server via _Syncthing_. In return I also have his backup on that same disk. To ensure privacy in transit and at rest, `restict` encrypts all data put into a repository. To save space only diffs are persisted when pushing updates. Unused data can be pruned periodically. 
 
 At the time of writing, _Synology_ does not have native `restic` support. In order to automate these backups, I rely on a container that is run periodically to archive select folders. 
 
 This third volume also contains all other Syncthing folder. The Syncthing process also runs in a container.
-{% mermaid() %}
-
+{% <mermaid> -%}
 ```mermaid
 architecture-beta
     group nas(database)[NAS]
@@ -65,13 +62,11 @@ architecture-beta
     disk1:R --> L:disk3
 
 ```
-
-{% end %}
+{%- </mermaid> %}
 
 The final diagram shows the combined view of all data stores. Arrow direction indicates data flow. For clients, all permanently required data is synced. Access to the data is provided from inside and outside the home network with Samba Shares and *Synology QuickConnect* for remote access.
 
-{% mermaid() %}
-
+{% <mermaid> -%}
 ```mermaid
 architecture-beta
     group nas(database)[NAS]
@@ -91,8 +86,7 @@ architecture-beta
 
     disk1:R <--> L:diskf
 ```
-
-{% end %}
+{%- </mermaid> %}
 
 # Conclusion
 This project was a great personal success. Besides existential dread, it also eliminated some hangups regarding relying on proprietary software. While I still love FOSS, I also have to acknowledge my limited time and energy. Using a commercial NAS product allowed me to escape analysis paralysis and actually finishing the setup.

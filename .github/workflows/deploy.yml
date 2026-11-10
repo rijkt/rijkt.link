@@ -7,15 +7,16 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
-      - name: Install and Run Zola
+      - uses: taiki-e/install-action@v2
+        with:
+          tool: zola@0.23.6
+      - name: Zola build
         run: |
           git submodule init
           git submodule update 
-          sudo snap install --edge zola
           zola build
       - name: Deploy
         uses: cloudflare/wrangler-action@v3
