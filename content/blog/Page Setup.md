@@ -38,7 +38,7 @@ With that you're reading the words of the proud owner of [pascal@rijkt.link](mai
 ## CloudFlare
 
 The resulting setup is quite simple. A CNAME entry points to an internal *Cloudflare* domain belonging to the *Cloudflare Page*. The internal domain is fronted by *Cloudflare Proxy*, which adds DDoS protection, metrics and the like.
-{% mermaid() %}
+{% <mermaid> -%}
 ```mermaid
 architecture-beta
 
@@ -50,7 +50,7 @@ architecture-beta
 
 
 ```
-{% end %}
+{%- </mermaid> %}
 
 ## Zola
 Zola is a static site generator written in Rust. It has many [themes](https://www.getzola.org/themes/), [Linkita](https://codeberg.org/salif/linkita) is the one I'm using. It is based on [Kita](https://github.com/st1020/kita) and adds multi-language support.
