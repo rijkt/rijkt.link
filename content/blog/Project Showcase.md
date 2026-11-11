@@ -2,7 +2,7 @@
 title = "Rust projects showcase"
 date = 2026-06-12
 [taxonomies]
-tags = ["Rust"]
+tags = ["rust"]
 +++
 
 ## My Rust journey so far  <!-- more -->
