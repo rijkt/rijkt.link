@@ -1,9 +1,12 @@
 +++
 title = "On self-reliance and convenience"
-date = 2026-11-10
+date = 2026-11-11
 [taxonomies]
-tags = ["linux", "personal"]
+tags = ["linux", "gender"]
 +++
+
+_Or how hyper-indiviualism slows you down._
+<!-- more -->
 
 I have been using Linux on and off for at least the last twelve years. There were times when I tried to go all in, only to come crawling back to a Windows install. By now the pendulum is firmly lodged on the side of Linux; my Windows partition was deleted over two years ago. Since then I was able to learn a lot and help others get started with their journey. With the evolution of the ecosystem this became easier and easier, but the most important change was in my approach. I'll try and explain this shift here.
 
