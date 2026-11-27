@@ -1,6 +1,6 @@
 +++
 title = "On self-reliance and convenience"
-date = 2026-11-13
+date = 2026-11-27
 [taxonomies]
 tags = ["linux", "gender"]
 +++
